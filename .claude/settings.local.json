@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:orcid.org)",
+      "Bash(gh api *)",
+      "WebFetch(domain:pub.orcid.org)",
+      "PowerShell(Invoke-RestMethod -Uri \"https://api.github.com/users/jdmax/repos?sort=updated&per_page=100\" -Headers @{\"Accept\"=\"application/vnd.github.v3+json\"} | Where-Object { $_.fork -eq $false } | Select-Object name, description, html_url | ConvertTo-Json)",
+      "PowerShell($repos = Invoke-RestMethod -Uri \"https://api.github.com/users/jdmax/repos?sort=updated&per_page=100\" -Headers @{\"Accept\"=\"application/vnd.github.v3+json\"}; $repos | Where-Object { $_.fork -eq $false } | ForEach-Object { \"$\\($_.name\\)|$\\($_.description\\)|$\\($_.html_url\\)\" })"
+    ]
+  }
+}

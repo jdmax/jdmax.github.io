@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Davis Maxwell</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #222;
+      background: #fafafa;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a3a5c;
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      margin-top: 0.4rem;
+      font-size: 1.05rem;
+      color: #b8cfe8;
+    }
+
+    header a {
+      color: #7eb8e8;
+      text-decoration: none;
+    }
+
+    header a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1a3a5c;
+      border-bottom: 2px solid #1a3a5c;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: #666;
+      min-width: 70px;
+    }
+
+    .info-value a {
+      color: #1a3a5c;
+      text-decoration: none;
+    }
+
+    .info-value a:hover { text-decoration: underline; }
+
+    ul.repos {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    ul.repos li a {
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #1a3a5c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    ul.repos li a:hover { text-decoration: underline; }
+
+    ul.repos li .desc {
+      font-size: 0.88rem;
+      color: #555;
+      margin-top: 0.1rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>James Davis Maxwell</h1>
+  <p>Staff Scientist  &mdash; Jefferson Lab Target Group</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Contact &amp; Links</h2>
+    <div class="info-row">
+      <span class="info-label">ORCID</span>
+      <span class="info-value">
+        <a href="https://orcid.org/0000-0003-2710-4646" target="_blank" rel="noopener">
+          0000-0003-2710-4646
+        </a>
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">CV</span>
+      <span class="info-value">
+        <a href="cv.pdf" target="_blank" rel="noopener">cv.pdf</a>
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">GitHub</span>
+      <span class="info-value">
+        <a href="https://github.com/jdmax" target="_blank" rel="noopener">github.com/jdmax</a>
+      </span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Public Repositories</h2>
+    <ul class="repos">
+      <li>
+        <a href="https://github.com/jdmax/QMeterSim" target="_blank" rel="noopener">QMeterSim</a>
+        <div class="desc">Jupyter Notebook simulating the electronic behavior of a series tank Q-meter circuit, modeling RF components and transmission line effects used in continuous-wave NMR measurements.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/HeSpectra1083" target="_blank" rel="noopener">HeSpectra1083</a>
+        <div class="desc">Calculates the spectrum of ³He and ⁴He near 1083 nm, accounting for Zeeman splitting and Doppler broadening; modernizes existing Fortran code from the Laboratoire Kastler Brossel at ENS Paris.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/DeuteronPeakFit" target="_blank" rel="noopener">DeuteronPeakFit</a>
+        <div class="desc">Python fitting routine for spin-1 NMR signals with quadrupolar splitting, extracting polarization measurements from continuous-wave NMR data via non-linear least-squares minimization.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/rgc_offline" target="_blank" rel="noopener">rgc_offline</a>
+        <div class="desc">Offline analysis of experimental data from polarized proton and deuteron targets at Jefferson Lab, processing NMR event data to compute calibration constants and polarization values.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/He3_LCR_Polarimeter" target="_blank" rel="noopener">He3_LCR_Polarimeter</a>
+        <div class="desc">LabView software controlling a ³He polarimeter that uses liquid crystal retarders for polarization measurement, developed at MIT.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/btarg_controls" target="_blank" rel="noopener">btarg_controls</a>
+        <div class="desc">EPICS soft IOC controls for Jefferson Lab's Hall B cryogenic target system, implemented with pythonSoftIOC.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/softioc_toolkit" target="_blank" rel="noopener">softioc_toolkit</a>
+        <div class="desc">Python framework for controlling laboratory instruments via EPICS soft IOCs, with a modular, configuration-driven architecture and built-in data logging.</div>
+      </li>
+      <li>
+        <a href="https://jdmax.github.io/Maxwell_Research/Maxwell_Source_Inventory.html" target="_blank" rel="noopener">Maxwell_Research</a>
+        <div class="desc">Genealogical research tracing the Maxwell family lineage from James D. Maxwell through American records to Scottish origins, with a roadmap for bridging remaining documentary gaps.</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/jlab_pynmr" target="_blank" rel="noopener">jlab_pynmr</a>
+        <div class="desc">NMR data acquisition program in Python</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/MEOP_PyIOC" target="_blank" rel="noopener">MEOP_PyIOC</a>
+        <div class="desc">Soft IOCs for Polarized Target Lab</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/pt-atarg" target="_blank" rel="noopener">pt-atarg</a>
+        <div class="desc">Python Soft IOC EPICS for Hall A</div>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/NMR_Analysis" target="_blank" rel="noopener">NMR_Analysis</a>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/pt-ctarg" target="_blank" rel="noopener">pt-ctarg</a>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/TE_Calculator" target="_blank" rel="noopener">TE_Calculator</a>
+      </li>
+      <li>
+        <a href="https://github.com/jdmax/PyMEOP" target="_blank" rel="noopener">PyMEOP</a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  James Davis Maxwell &mdash; Jefferson Lab
+</footer>
+
+</body>
+</html>
