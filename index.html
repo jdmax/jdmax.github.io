@@ -4,211 +4,398 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>James Davis Maxwell</title>
+  <meta name="description" content="James Davis Maxwell, Staff Scientist in the Jefferson Lab Target Group: polarized targets, NMR, polarized helium-3, cryogenics and EPICS controls.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --ink: #1d2327;
+      --muted: #5c6670;
+      --line: #e2e0d8;
+      --accent: #0e6170;
+      --accent-soft: #e3f0f1;
+      --header-bg: #12313a;
+      --header-ink: #f2f5f4;
+      --header-muted: #a9c3c6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14191c;
+        --surface: #1c2327;
+        --ink: #e4e8ea;
+        --muted: #9aa6ad;
+        --line: #2c363b;
+        --accent: #6cc3cf;
+        --accent-soft: #1f3438;
+        --header-bg: #0d2329;
+        --header-ink: #f2f5f4;
+        --header-muted: #8fb0b4;
+      }
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      color: #222;
-      background: #fafafa;
+      font-family: 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      color: var(--ink);
+      background: var(--bg);
       line-height: 1.6;
     }
 
+    sup, sub { line-height: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    h1, h2, h3 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header */
+
     header {
-      background: #1a3a5c;
-      color: #fff;
-      padding: 2.5rem 2rem 2rem;
+      background: var(--header-bg);
+      color: var(--header-ink);
+      padding: 3rem 0 2.5rem;
     }
 
-    header h1 {
-      font-size: 2rem;
-      font-weight: normal;
-      letter-spacing: 0.02em;
+    header h1 { font-size: 2.4rem; letter-spacing: 0.01em; }
+
+    header .role {
+      margin-top: 0.3rem;
+      font-size: 1.15rem;
+      color: var(--header-muted);
     }
 
-    header p {
-      margin-top: 0.4rem;
-      font-size: 1.05rem;
-      color: #b8cfe8;
-    }
-
-    header a {
-      color: #7eb8e8;
-      text-decoration: none;
-    }
-
-    header a:hover { text-decoration: underline; }
-
-    main {
-      max-width: 800px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-    }
-
-    section { margin-bottom: 2.5rem; }
-
-    h2 {
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #1a3a5c;
-      border-bottom: 2px solid #1a3a5c;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .info-row {
+    .links {
       display: flex;
-      gap: 0.5rem;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      list-style: none;
     }
 
-    .info-label {
-      font-size: 0.85rem;
-      color: #666;
-      min-width: 70px;
+    .links a {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      color: var(--header-ink);
+      font-size: 0.95rem;
     }
 
-    .info-value a {
-      color: #1a3a5c;
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.1);
       text-decoration: none;
     }
 
-    .info-value a:hover { text-decoration: underline; }
+    /* About */
 
-    ul.repos {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2rem;
+      align-items: start;
+      margin: 2.5rem auto 1.5rem;
+    }
+
+    .about p + p { margin-top: 0.8rem; }
+
+    .about img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .topics a {
+      display: inline-block;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+    }
+
+    /* Cards */
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.6rem 1.75rem;
+      margin-bottom: 1.5rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .card h2 { font-size: 1.45rem; }
+
+    .card .intro {
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    .card-body {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      margin-top: 1.25rem;
+    }
+
+    .card-body.single { grid-template-columns: 1fr; }
+
+    .card h3 {
+      font-family: 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.65rem;
     }
 
-    ul.repos li a {
-      font-family: 'Courier New', monospace;
-      font-size: 0.95rem;
-      color: #1a3a5c;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    .papers li { font-size: 0.97rem; line-height: 1.45; }
 
-    ul.repos li a:hover { text-decoration: underline; }
-
-    ul.repos li .desc {
+    .papers .meta {
+      display: block;
       font-size: 0.88rem;
-      color: #555;
-      margin-top: 0.1rem;
+      color: var(--muted);
+    }
+
+    .code li { font-size: 0.93rem; line-height: 1.45; }
+
+    .code li > a:first-child {
+      font-family: Consolas, 'Courier New', monospace;
+      font-weight: 600;
+    }
+
+    .code .desc { color: var(--muted); }
+
+    .more {
+      margin-top: 1rem;
+      font-size: 0.92rem;
     }
 
     footer {
       text-align: center;
-      font-size: 0.8rem;
-      color: #aaa;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e0e0e0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 2rem 1rem 2.5rem;
+    }
+
+    @media (max-width: 760px) {
+      header { padding: 2.2rem 0 2rem; }
+      header h1 { font-size: 1.9rem; }
+      .about { grid-template-columns: 1fr; gap: 1.25rem; }
+      .about img { max-width: 420px; }
+      .card { padding: 1.25rem 1.1rem; }
+      .card-body { grid-template-columns: 1fr; gap: 1.25rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>James Davis Maxwell</h1>
-  <p>Staff Scientist  &mdash; Jefferson Lab Target Group</p>
+  <div class="wrap">
+    <h1>James Davis Maxwell</h1>
+    <p class="role">Staff Scientist &middot; Jefferson Lab Target Group</p>
+    <ul class="links">
+      <li><a href="JDMaxwellCV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      <li><a href="https://inspirehep.net/authors/1233194" target="_blank" rel="noopener">INSPIRE</a></li>
+      <li><a href="https://orcid.org/0000-0003-2710-4646" target="_blank" rel="noopener">ORCID</a></li>
+      <li><a href="https://github.com/jdmax" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
 </header>
 
-<main>
+<main class="wrap">
 
-  <section>
-    <h2>Contact &amp; Links</h2>
-    <div class="info-row">
-      <span class="info-label">ORCID</span>
-      <span class="info-value">
-        <a href="https://orcid.org/0000-0003-2710-4646" target="_blank" rel="noopener">
-          0000-0003-2710-4646
-        </a>
-      </span>
+  <section class="about">
+    <div>
+      <p>James Maxwell develops cryogenic and polarized targets for nuclear physics experiments in the Target Group at Thomas Jefferson National Accelerator Facility, where he has worked since 2015. His work covers dynamically polarized solid targets and the NMR systems that measure them, polarized helium-3 targets at high magnetic field, cryogenics, and the controls software that runs it all.</p>
+      <!-- <p>Before Jefferson Lab he was a postdoc at MIT's Laboratory for Nuclear Science, leading development of a polarized &sup3;He ion source for RHIC and working on cryogenics for the SNS neutron EDM experiment, and before that at the University of New Hampshire on solid polarized targets. He received his Ph.D. in physics from the University of Virginia in 2011, measuring the proton spin structure function g<sub>2</sub>. He was also a technical consultant on <i>Ghostbusters</i> (2016).</p> -->
     </div>
-    <div class="info-row">
-      <span class="info-label">CV</span>
-      <span class="info-value">
-        <a href="JDMaxwellCV.pdf" target="_blank" rel="noopener">JDMaxwellCV.pdf</a>
-      </span>
-    </div>
-    <div class="info-row">
-      <span class="info-label">GitHub</span>
-      <span class="info-value">
-        <a href="https://github.com/jdmax" target="_blank" rel="noopener">github.com/jdmax</a>
-      </span>
-    </div>
+    <img src="jdmaxwell-lab.jpg" width="900" height="577" alt="James Maxwell setting up optics at the bore of a magnet in the lab">
   </section>
 
-  <section>
-    <h2>Public Repositories</h2>
-    <ul class="repos">
-      <li>
-        <a href="https://github.com/jdmax/QMeterSim" target="_blank" rel="noopener">QMeterSim</a>
-        <div class="desc">Jupyter Notebook simulating the electronic behavior of a series tank Q-meter circuit, modeling RF components and transmission line effects used in continuous-wave NMR measurements.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/HeSpectra1083" target="_blank" rel="noopener">HeSpectra1083</a>
-        <div class="desc">Calculates the spectrum of ³He and ⁴He near 1083 nm, accounting for Zeeman splitting and Doppler broadening; modernizes existing Fortran code from the Laboratoire Kastler Brossel at ENS Paris.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/DeuteronPeakFit" target="_blank" rel="noopener">DeuteronPeakFit</a>
-        <div class="desc">Python fitting routine for spin-1 NMR signals with quadrupolar splitting, extracting polarization measurements from continuous-wave NMR data via non-linear least-squares minimization.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/rgc_offline" target="_blank" rel="noopener">rgc_offline</a>
-        <div class="desc">Offline analysis of experimental data from polarized proton and deuteron targets at Jefferson Lab, processing NMR event data to compute calibration constants and polarization values.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/He3_LCR_Polarimeter" target="_blank" rel="noopener">He3_LCR_Polarimeter</a>
-        <div class="desc">LabView software controlling a ³He polarimeter that uses liquid crystal retarders for polarization measurement, developed at MIT.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/btarg_controls" target="_blank" rel="noopener">btarg_controls</a>
-        <div class="desc">EPICS soft IOC controls for Jefferson Lab's Hall B cryogenic target system, implemented with pythonSoftIOC.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/softioc_toolkit" target="_blank" rel="noopener">softioc_toolkit</a>
-        <div class="desc">Python framework for controlling laboratory instruments via EPICS soft IOCs, with a modular, configuration-driven architecture and built-in data logging.</div>
-      </li>
-      <li>
-        <a href="https://jdmax.github.io/Maxwell_Research/Maxwell_American_Line.html" target="_blank" rel="noopener">Maxwell_Research</a>
-        <div class="desc">Genealogical research tracing the Maxwell family lineage from James D. Maxwell through American records to Scottish origins, with a roadmap for bridging remaining documentary gaps.</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/jlab_pynmr" target="_blank" rel="noopener">jlab_pynmr</a>
-        <div class="desc">NMR data acquisition program in Python</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/MEOP_PyIOC" target="_blank" rel="noopener">MEOP_PyIOC</a>
-        <div class="desc">Soft IOCs for Polarized Target Lab</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/pt-atarg" target="_blank" rel="noopener">pt-atarg</a>
-        <div class="desc">Python Soft IOC EPICS for Hall A</div>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/NMR_Analysis" target="_blank" rel="noopener">NMR_Analysis</a>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/pt-ctarg" target="_blank" rel="noopener">pt-ctarg</a>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/TE_Calculator" target="_blank" rel="noopener">TE_Calculator</a>
-      </li>
-      <li>
-        <a href="https://github.com/jdmax/PyMEOP" target="_blank" rel="noopener">PyMEOP</a>
-      </li>
-    </ul>
-  </section>
+  <ul class="topics">
+    <li><a href="#nmr">Polarized targets &amp; NMR</a></li>
+    <li><a href="#helium">Polarized helium-3</a></li>
+    <li><a href="#cryo">Cryogenics</a></li>
+    <li><a href="#controls">EPICS controls</a></li>
+    <li><a href="#physics">Physics results</a></li>
+    <li><a href="#other">Other projects</a></li>
+  </ul>
+
+  <article class="card" id="nmr">
+    <h2>Polarized Targets &amp; NMR</h2>
+    <p class="intro">Dynamically polarized proton and deuteron targets for Jefferson Lab, including the CLAS12 longitudinally polarized target for Run Group C, and the continuous-wave NMR systems that measure their polarization.</p>
+    <div class="card-body">
+      <div>
+        <h3>Papers</h3>
+        <ul class="papers">
+          <li><a href="https://doi.org/10.1016/j.nima.2026.171417" target="_blank" rel="noopener">A New cw-NMR Q-meter for Dynamically Polarized Targets for Particle Physics</a><span class="meta">J. Maxwell et al., Nucl. Instrum. Meth. A 1087 (2026)</span></li>
+          <li><a href="https://patents.google.com/patent/US11726153B2/en" target="_blank" rel="noopener">Digital Q-Meter for Continuous-Wave NMR</a><span class="meta">J. Maxwell, H. Dong, C. Keith, C. Cuevas, US Patent 11726153 (2023)</span></li>
+          <li><a href="https://doi.org/10.22323/1.433.0009" target="_blank" rel="noopener">First Use of a Longitudinally Polarized Target with CLAS12</a><span class="meta">C. Keith, PSTP 2022 Proceedings</span></li>
+          <li><a href="https://doi.org/10.22323/1.379.0051" target="_blank" rel="noopener">Developing New Q-meters for NMR Measurements of Polarized Solids</a><span class="meta">J. Maxwell, PSTP 2019 Proceedings</span></li>
+          <li><a href="https://doi.org/10.22323/1.346.0102" target="_blank" rel="noopener">NMR Measurements for Solid Polarized Targets at Jefferson Lab</a><span class="meta">J. Maxwell, SPIN 2018 Proceedings</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2017.12.008" target="_blank" rel="noopener">Design and Performance of the Spin Asymmetries of the Nucleon Experiment</a><span class="meta">J. Maxwell et al., Nucl. Instrum. Meth. A 885 (2018)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2013.12.016" target="_blank" rel="noopener">Dynamically Polarized Target for the g2p and GEp Experiments at Jefferson Lab</a><span class="meta">J. Pierce, J. Maxwell et al., Nucl. Instrum. Meth. A 738 (2013)</span></li>
+          <li><a href="https://doi.org/10.1142/9789814324922_0018" target="_blank" rel="noopener">Radiation Damage and Recovery in Polarized <sup>14</sup>NH<sub>3</sub> Ammonia Targets at Jefferson Lab</a><span class="meta">J. Maxwell, PSTP 2009 Proceedings</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Code</h3>
+        <ul class="code">
+          <li><a href="https://github.com/jdmax/jlab_pynmr" target="_blank" rel="noopener">jlab_pynmr</a> <span class="desc">PyNMR: NMR polarimetry control and data acquisition for proton and deuteron targets, with live analysis and EPICS output.</span></li>
+          <li><a href="https://github.com/jdmax/rgc_offline" target="_blank" rel="noopener">rgc_offline</a> <span class="desc">Offline target polarization analysis for CLAS12 Run Group C.</span></li>
+          <li><a href="https://github.com/jdmax/DeuteronPeakFit" target="_blank" rel="noopener">DeuteronPeakFit</a> <span class="desc">Fits to spin-1 Pake doublets for vector and tensor polarization.</span></li>
+          <li><a href="https://github.com/jdmax/nmr_coil_sim" target="_blank" rel="noopener">nmr_coil_sim</a> <span class="desc">NMR coil field simulations against the beam raster. <a href="https://jdmax.github.io/nmr_coil_sim/" target="_blank" rel="noopener">Browser explorer</a>.</span></li>
+          <li><a href="https://github.com/jdmax/QMeterSim" target="_blank" rel="noopener">QMeterSim</a> <span class="desc">Interactive simulation of a series-tank Q-meter circuit.</span></li>
+          <li><a href="https://github.com/jdmax/TE_Calculator" target="_blank" rel="noopener">TE_Calculator</a> <span class="desc">Thermal equilibrium polarization and calibration constants.</span></li>
+          <li><a href="https://github.com/jdmax/NMR_Analysis" target="_blank" rel="noopener">NMR_Analysis</a> <span class="desc">Notebooks walking through proton and deuteron signal analysis.</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="helium">
+    <h2>Polarized Helium-3</h2>
+    <p class="intro">Metastability exchange optical pumping of &sup3;He at high magnetic field, for a polarized &sup3;He target in CLAS12 (PR12-20-002) and for polarized &sup3;He ion beams at RHIC and the Electron-Ion Collider.</p>
+    <div class="card-body">
+      <div>
+        <h3>Papers</h3>
+        <ul class="papers">
+          <li><a href="https://doi.org/10.1016/j.nima.2025.170870" target="_blank" rel="noopener">Polarizing <sup>3</sup>He via Metastability Exchange Optical Pumping Using a 1.2 mbar Sealed Cell at Magnetic Fields up to 5 T</a><span class="meta">P. Pandey, H. Lu, J. Maxwell et al., Nucl. Instrum. Meth. A 1081 (2025)</span></li>
+          <li><a href="https://arxiv.org/abs/2510.10794" target="_blank" rel="noopener">Realizing the Scientific Program with Polarized Ion Beams at EIC</a><span class="meta">EPIOS Scientific Consortium, arXiv:2510.10794</span></li>
+          <li><a href="https://doi.org/10.22323/1.456.0213" target="_blank" rel="noopener">A High-Field Polarized <sup>3</sup>He Target for Jefferson Lab's CLAS12 Spectrometer</a><span class="meta">J. Maxwell, SPIN 2023 Proceedings</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2023.168792" target="_blank" rel="noopener">Metastability Exchange Optical Pumping of <sup>3</sup>He at Low Pressure and High Magnetic Field</a><span class="meta">X. Li, J. Maxwell, D. Nguyen et al., Nucl. Instrum. Meth. A 1057 (2023)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2023.168494" target="_blank" rel="noopener">Optically Pumped Polarized <sup>3</sup>He<sup>++</sup> Ion Source Development for RHIC/EIC</a><span class="meta">A. Zelenski et al., Nucl. Instrum. Meth. A 1055 (2023)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2021.165590" target="_blank" rel="noopener">A Concept for Polarized <sup>3</sup>He Targets for High Luminosity Scattering Experiments in High Magnetic Field Environments</a><span class="meta">J. Maxwell, R. Milner, Nucl. Instrum. Meth. A 1012 (2021)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2019.02.019" target="_blank" rel="noopener">Enhanced Polarization of Low Pressure <sup>3</sup>He through Metastability-Exchange Optical Pumping at High Field</a><span class="meta">J. Maxwell et al., Nucl. Instrum. Meth. A 959 (2020)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2015.01.004" target="_blank" rel="noopener">Diffusive Transfer of Polarized <sup>3</sup>He Gas through Depolarizing Magnetic Gradients</a><span class="meta">J. Maxwell, C. Epstein, R. Milner, Nucl. Instrum. Meth. A 777 (2015)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2014.07.049" target="_blank" rel="noopener">Liquid Crystal Polarimetry for Metastability Exchange Optical Pumping of <sup>3</sup>He</a><span class="meta">J. Maxwell, C. Epstein, R. Milner, Nucl. Instrum. Meth. A 764 (2014)</span></li>
+          <li><a href="https://doi.org/10.1134/S1063779614010651" target="_blank" rel="noopener">Development of a Polarized <sup>3</sup>He Beam Source for RHIC using EBIS</a><span class="meta">J. Maxwell et al., Phys. Part. Nucl. 45 (2014)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Code</h3>
+        <ul class="code">
+          <li><a href="https://github.com/jdmax/PyMEOP" target="_blank" rel="noopener">PyMEOP</a> <span class="desc">Optical polarimetry for MEOP: scans a probe laser across two absorption lines, fits the peaks and reports polarization. Also runs the discharge and slow controls.</span></li>
+          <li><a href="https://github.com/jdmax/HeSpectra1083" target="_blank" rel="noopener">HeSpectra1083</a> <span class="desc">&sup3;He and &#8308;He spectra near 1083 nm with Zeeman splitting and Voigt broadening. <a href="https://jdmax.github.io/HeSpectra1083/" target="_blank" rel="noopener">Interactive page</a>.</span></li>
+          <li><a href="https://github.com/jdmax/spectrum_clean" target="_blank" rel="noopener">spectrum_clean</a> <span class="desc">Browser for discharge emission spectra to check &sup3;He purity.</span></li>
+          <li><a href="https://github.com/jdmax/He3_LCR_Polarimeter" target="_blank" rel="noopener">He3_LCR_Polarimeter</a> <span class="desc">LabView software for the liquid crystal retarder polarimeter, MIT 2013&ndash;2015.</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="cryo">
+    <h2>Cryogenics</h2>
+    <p class="intro">Refrigerators, cryostats and gas targets: a horizontal 1 K refrigerator for polarized solid targets, the PRad windowless hydrogen gas flow target, and the cryogenic apparatus for the SNS neutron EDM experiment.</p>
+    <div class="card-body">
+      <div>
+        <h3>Papers</h3>
+        <ul class="papers">
+          <li><a href="https://doi.org/10.1016/j.cryogenics.2025.104146" target="_blank" rel="noopener">Horizontal 1 K Refrigerator with Novel Loading Mechanism for Polarized Solid Targets</a><span class="meta">J. Brock et al., Cryogenics 150 (2025)</span></li>
+          <li><a href="https://doi.org/10.1016/j.nima.2021.165300" target="_blank" rel="noopener">The PRad Windowless Gas Flow Target</a><span class="meta">J. Pierce et al., Nucl. Instrum. Meth. A 1003 (2021)</span></li>
+          <li><a href="https://doi.org/10.1088/1748-0221/14/11/P11017" target="_blank" rel="noopener">A New Cryogenic Apparatus to Search for the Neutron Electric Dipole Moment</a><span class="meta">M.W. Ahmed et al., JINST 14 P11017 (2019)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Code</h3>
+        <ul class="code">
+          <li><a href="https://github.com/jdmax/calculators" target="_blank" rel="noopener">calculators</a> <span class="desc">Helium-3 and helium-4 vapor pressure, and thermal conductance and heat load from 1 to 500 K.</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="controls">
+    <h2>EPICS Controls</h2>
+    <p class="intro">Slow controls written in Python on pythonSoftIOC, for the Hall B cryotarget, target test stands and the polarized target lab, built on a shared toolkit and driver library.</p>
+    <div class="card-body">
+      <div>
+        <h3>Papers</h3>
+        <ul class="papers">
+          <li><a href="https://doi.org/10.1088/1748-0221/21/03/P03030" target="_blank" rel="noopener">EPICS for Small-Scale Laboratories with Python Soft IOCs</a><span class="meta">J. Maxwell, JINST 21 P03030 (2026)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Code</h3>
+        <ul class="code">
+          <li><a href="https://github.com/jdmax/softioc_toolkit" target="_blank" rel="noopener">softioc_toolkit</a> <span class="desc">Framework for soft IOCs: YAML configuration, archiving with a web viewer, state machine, Phoebus displays and an IOC manager.</span></li>
+          <li><a href="https://github.com/jdmax/epics-device-lib" target="_blank" rel="noopener">epics-device-lib</a> <span class="desc">Shared drivers for Datexel, Lakeshore, Cryomagnetics, AMI, Pfeiffer, MKS, Zaber and more.</span></li>
+          <li><a href="https://github.com/jdmax/btarg_controls" target="_blank" rel="noopener">btarg_controls</a> <span class="desc">Controls for the Hall B cryotarget.</span></li>
+          <li><a href="https://github.com/jdmax/MEOP_PyIOC" target="_blank" rel="noopener">MEOP_PyIOC</a> <span class="desc">Deployment for the MEOP &sup3;He lab: vacuum, temperatures, level, magnet and power supplies.</span></li>
+          <li><a href="https://github.com/jdmax/pt-atarg" target="_blank" rel="noopener">pt-atarg</a> <span class="desc">Trial deployment for a Hall A target test stand.</span></li>
+          <li><a href="https://github.com/jdmax/pt-ctarg" target="_blank" rel="noopener">pt-ctarg</a> <span class="desc">Deployment for a Hall C target test stand.</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="physics">
+    <h2>Physics Results</h2>
+    <p class="intro">Selected results from Jefferson Lab experiments that used these targets, on proton structure, spin and charge radius.</p>
+    <div class="card-body single">
+      <div>
+        <h3>Papers</h3>
+        <ul class="papers">
+          <li><a href="https://doi.org/10.1038/s41567-022-01781-y" target="_blank" rel="noopener">Proton Spin Structure and Generalized Polarizabilities in the Strong Quantum Chromodynamics Regime</a><span class="meta">D. Ruth et al., Nature Phys. 18 (2022)</span></li>
+          <li><a href="https://doi.org/10.1103/PhysRevC.101.035206" target="_blank" rel="noopener">Proton Form Factor Ratio &mu;<sub>p</sub>G<sub>E</sub><sup>p</sup>/G<sub>M</sub><sup>p</sup> from Double Spin Asymmetry</a><span class="meta">A. Liyanage et al. (SANE Collaboration), Phys. Rev. C 101, 035206 (2020)</span></li>
+          <li><a href="https://doi.org/10.1038/s41586-019-1721-2" target="_blank" rel="noopener">A Small Proton Charge Radius from an Electron&ndash;Proton Scattering Experiment</a><span class="meta">W. Xiong et al., Nature 575 (2019)</span></li>
+          <li><a href="https://doi.org/10.1103/PhysRevLett.122.022002" target="_blank" rel="noopener">Revealing Color Forces with Transverse Polarized Electron Scattering</a><span class="meta">W. Armstrong et al., Phys. Rev. Lett. 122, 022002 (2019)</span></li>
+          <li><a href="https://doi.org/10.1103/PhysRevLett.123.022501" target="_blank" rel="noopener">Measurements of Non-Singlet Moments of the Nucleon Structure Functions and Comparison to Predictions from Lattice QCD for Q<sup>2</sup> = 4 GeV<sup>2</sup></a><span class="meta">I. Albayrak et al., Phys. Rev. Lett. 123, 022501 (2019)</span></li>
+          <li><a href="https://doi.org/10.1103/PhysRevLett.115.152001" target="_blank" rel="noopener">Polarization Transfer in Wide-Angle Compton Scattering and Single-Pion Photoproduction from the Proton</a><span class="meta">C. Fanelli et al., Phys. Rev. Lett. 115, 152001 (2015)</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="more">Full publication and talk lists are in the <a href="JDMaxwellCV.pdf" target="_blank" rel="noopener">CV</a> and on <a href="https://inspirehep.net/authors/1233194" target="_blank" rel="noopener">INSPIRE</a>.</p>
+  </article>
+
+  <article class="card" id="other">
+    <h2>Other Projects</h2>
+    <div class="card-body single">
+      <ul class="code">
+        <li><a href="https://jdmax.github.io/Maxwell_Research/Maxwell_American_Line.html" target="_blank" rel="noopener">Maxwell_Research</a> <span class="desc">Maxwell family genealogy, following the American line back toward Scottish origins with documents and Y-DNA results. See also the <a href="https://jdmax.github.io/Maxwell_Research/Maxwell_Source_Inventory.html" target="_blank" rel="noopener">source inventory</a>.</span></li>
+        <li><a href="https://github.com/jdmax/StAndrewsNN_Lego" target="_blank" rel="noopener">StAndrewsNN_Lego</a> <span class="desc">Step-by-step instructions for a 10,600-piece minifig-scale LEGO model of the nave of St. Andrew's Episcopal Church, Newport News. <a href="https://jdmax.github.io/StAndrewsNN_Lego/" target="_blank" rel="noopener">View the guide</a>.</span></li>
+      </ul>
+    </div>
+  </article>
 
 </main>
 
 <footer>
-  James Davis Maxwell &mdash; Jefferson Lab
+  James Davis Maxwell &middot; Jefferson Lab
 </footer>
 
 </body>
